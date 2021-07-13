@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.example.demo.user.Student;
 
 public interface Repository extends JpaRepository<Student, Long> {
-    List<Student> findByRegId(Integer regId);
-    List<Student> findByFirstName(String firstName);
+    List<Student> findById(Integer id);
+    List<Student> findByFirstNameContaining(String firstName);
 	
 }

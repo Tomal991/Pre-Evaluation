@@ -29,14 +29,14 @@ public class Controlller {
     Repository repository;
 
     @GetMapping("/student")
-    public ResponseEntity<List<Student>> getAllStudent(@RequestParam(required = false) Integer regId) {
+    public ResponseEntity<List<Student>> getAllStudent(@RequestParam(required = false) Integer id) {
         try {
             List<Student> student = new ArrayList<Student>();
 
-            if (regId == null)
+            if (id == null)
             	repository.findAll().forEach(student::add);
             else
-            	repository.findByRegId(regId).forEach(student::add);
+            	repository.findById(id).forEach(student::add);
 
             if (student.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -76,7 +76,7 @@ public class Controlller {
     }
 
     @PutMapping("/student/{id}")
-    public ResponseEntity<Student> updateTutorial(@PathVariable("id") long id, @RequestBody Student student) {
+    public ResponseEntity<Student> updateStudent(@PathVariable("id") long id, @RequestBody Student student) {
         Optional<Student> tutorialData = repository.findById(id);
 
         if (tutorialData.isPresent()) {
@@ -91,7 +91,7 @@ public class Controlller {
     }
 
     @DeleteMapping("/student/{id}")
-    public ResponseEntity<HttpStatus> deleteTutorial(@PathVariable("id") long id) {
+    public ResponseEntity<HttpStatus> deletestudent(@PathVariable("id") long id) {
         try {
             repository.deleteById(id);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -111,15 +111,15 @@ public class Controlller {
 
     }
 
-    @GetMapping("/student/firstName")
-    public ResponseEntity<List<Student>> findByFirstName() {
+    @GetMapping("/student/name/{firstName}")
+    public ResponseEntity<List<Student>> findByFirstNameContaining() {
         try {
-            List<Student> tutorials = repository.findByFirstName(null);
+            List<Student> student = repository.findByFirstNameContaining(null);
 
-            if (tutorials.isEmpty()) {
+            if (student.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }
-            return new ResponseEntity<>(tutorials, HttpStatus.OK);
+            return new ResponseEntity<>(student, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
