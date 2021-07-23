@@ -9,9 +9,11 @@ import { UserAddComponent } from './user-add/user-add.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { UserListComponent } from './user-list/user-list.component';
+import { UserUpdateComponent } from './user-update/user-update.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
 
 @NgModule({
-  declarations: [AppComponent, UserAddComponent, UserListComponent],
+  declarations: [AppComponent, UserAddComponent, UserListComponent, UserUpdateComponent, UserDetailsComponent],
   imports: [
     RouterModule,
     BrowserModule,

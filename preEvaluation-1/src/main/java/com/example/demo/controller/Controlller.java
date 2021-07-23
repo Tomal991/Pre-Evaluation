@@ -85,6 +85,7 @@ public class Controlller {
 		if (tutorialData.isPresent()) {
 			Student _student = tutorialData.get();
 			_student.setRegId(student.getRegId());
+			_student.setIntitutionId(student.getIntitutionId());
 			_student.setFirstName(student.getFirstName());
 			_student.setStudentId(student.getStudentId());
 

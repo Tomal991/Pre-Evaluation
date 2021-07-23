@@ -1,0 +1,27 @@
+<div class="row row justify-content-center align-self-center">
+    <div style="width: 400px;" *ngIf="user">
+      <h2 class="my-4">Tutorial Details</h2>
+      <div>
+        <label><b>Registration Id: </b></label> {{user.regId}}
+      </div>
+      <div>
+        <label><b>Intitution Id: </b></label> {{user.intitutionId}}
+      </div>
+      <div>
+        <label><b>Student Id: </b></label> {{user.studentId}}
+      </div>
+      <div>
+        <label><b>FirstName : </b></label> {{user.firstName}}
+      </div>
+      <div>
+        <label><b>LastName : </b></label> {{user.lastName}}
+      </div>
+    
+    
+    <br>
+    <br>
+    <button (click)="updateLink()" class="btn btn-info mr-4">Update</button> <span></span>
+    <button (click)="list()" class="btn btn-primary">Back to Tutorial List</button><br>
+    </div>
+    </div>
+    
